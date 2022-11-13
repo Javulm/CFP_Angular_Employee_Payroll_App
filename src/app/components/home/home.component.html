@@ -19,7 +19,19 @@
                 <th>Start Date</th>
                 <th>Actions</th>
             </tr>
-
+            <tr *ngFor="let emp of employeelist">
+                <td><img class="profile" src="{{emp.profilePic}}" alt=""></td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.gender}}</td>
+                <td>
+                    <div class="dept-label" *ngFor="let departments of emp.departments">{{departments}}</div>
+                </td>
+                <td>{{emp.salary}}</td>
+                <td>{{emp.startDate}}</td>
+                <td><img src="../../../assets/edit.svg" class="edit" (click)="editById(emp.employeeId)" />
+                    <img src="../../../assets/delete.svg" class="delete" (click)="deleteById(emp.employeeId)" />
+                </td>
+            </tr>
         </table>
     </div>
 </div>

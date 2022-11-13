@@ -122,3 +122,19 @@ td img {
     font-weight: 300;
     margin-bottom: 8px;
 }
+
+.form-group {
+    color: red;
+    margin-left: 150px;
+    margin-bottom: 10px;
+    width: 960px;
+    transition: width 0.4s ease-in-out;
+}
+
+.edit {
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}

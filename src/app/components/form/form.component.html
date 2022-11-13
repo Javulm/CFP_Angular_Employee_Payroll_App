@@ -3,15 +3,15 @@
         <div class="form-head">Employee Payroll Form</div>
         <div class="row-content">
             <label for="Name" class="label text">Name</label>
-            <input type="text" name="Name" id="Name" minlength="3" pattern="^[A-Z][a-zA-Z]+$" class="input required"
+            <input type="text" name="Name" id="Name" minlength="3" pattern="^[A-Z][a-zA-Z]$" class="input required"
                 placeholder="Enter your Name... " autocomplete="off" required [(ngModel)]="employee.name">
-            <span class=error-output>Name is incorrect</span>
+            <span class=error-output></span>
         </div>
         <div class="row-content">
             <label class="label text" for="profile">Profile Image</label>
             <div class="profile-radio-content">
                 <label>
-                    <input type="radio" id="profile2" name="profile" value="../assets/profile_img-1.png" required
+                    <input type="radio" id="profile1" name="profile" value="../assets/profile_img-1.png" required
                         [(ngModel)]="employee.profilePic">
                     <img class="profile" id="image1" src="../assets/profile_img-1.png">
                 </label>
@@ -43,22 +43,10 @@
         </div>
         <div class="row-content">
             <label class="label text" for="department">Department</label>
-            <div>
-                <input type="checkbox" class="checkbox" id="hr" name="department1" value="HR"
-                    [ngModel]="employee.departments=='HR'">
-                <label for="hr">HR</label>
-                <input type="checkbox" class="checkbox" id="sales" name="department2" value="Sales"
-                    [ngModel]="employee.departments=='Sales'">
-                <label for="sales">Sales</label>
-                <input type="checkbox" class="checkbox" id="finance" name="department3" value="Finance"
-                    [ngModel]="employee.departments=='Finance'">
-                <label for="finance">Finance</label>
-                <input type="checkbox" class="checkbox" id="engineer" name="department4" value="Engineer"
-                    [ngModel]="employee.departments=='Engineer'">
-                <label for="engineer">Engineer</label>
-                <input type="checkbox" class="checkbox" id="others" name="department5" value="Others"
-                    [ngModel]="employee.departments=='Others'">
-                <label for="others">Others</label>
+            <div *ngFor="let departName of departments,let i = index ">
+                <input type="checkbox" class="checkbox" id="department" name="department"
+                    [value]="this.employee.departments[i]" (change)="checkBoxChange(departName)" (ngModel)="departName"
+                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}}>
             </div>
         </div>
         <div class="row-content">
@@ -80,6 +68,7 @@
             <button class="resetButton button cancelButton" (click)="onCancel()">Cancel</button>
             <div class="submit-reset">
                 <button type="submit" (click)="onSubmit()" class="button submitButton" id="submitButton">Submit</button>
+                <button class="updatebutton button" *ngIf="this.id!=null" (click)="updateEmployeeData()">update</button>
                 <button type="reset" class="resetButton button">Reset</button>
             </div>
         </div>
