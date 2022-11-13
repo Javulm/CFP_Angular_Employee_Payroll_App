@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     });
   }
   editById(id: number) {
-    this.router.navigate(['/update', id])
+    this.router.navigate(['update', id])
   }
   deleteById(id: number) {
     this.service.deleteById(id).subscribe((data) => {

@@ -10,7 +10,6 @@ import { EmployeeserviceService } from 'src/app/service/employeeservice.service'
 })
 export class FormComponent implements OnInit {
   employee: Employeedata = new Employeedata("", 0, "", new Date, "", "", [])
-  id: any = this.route.snapshot.paramMap.get("id")
   constructor(private router: Router, private service: EmployeeserviceService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -45,10 +44,4 @@ export class FormComponent implements OnInit {
       }
     }
   }
-  updateEmployeeData() {
-    this.service.updateById(this.employee, this.id).subscribe((data: any) => {
-      this.router.navigate(["/"])
-    });
-  }
-
 }
