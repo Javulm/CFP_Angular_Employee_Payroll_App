@@ -5,9 +5,9 @@ export class Employeedata {
     startDate: Date;
     note: String = "";
     profilePic: String = "";
-    departments: String = "";
+    departments: Array<any> = [];
 
-    constructor(name: String, salary: Number, gender: String, startDate: Date, note: String, profilePic: String, departments: String) {
+    constructor(name: String, salary: Number, gender: String, startDate: Date, note: String, profilePic: String, departments: Array<any>) {
         this.name = name;
         this.salary = salary;
         this.gender = gender;

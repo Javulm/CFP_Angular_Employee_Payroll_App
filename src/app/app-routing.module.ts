@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'form', component: FormComponent },
+  { path: 'update/:id', component: FormComponent }
 ];
 
 @NgModule({
