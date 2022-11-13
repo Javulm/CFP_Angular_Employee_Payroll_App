@@ -7,6 +7,7 @@ export class Employeedata {
     profilePic: String = "";
     departments: Array<any> = [];
 
+
     constructor(name: String, salary: Number, gender: String, startDate: Date, note: String, profilePic: String, departments: Array<any>) {
         this.name = name;
         this.salary = salary;

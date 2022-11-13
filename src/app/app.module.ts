@@ -8,13 +8,15 @@ import { FormComponent } from './components/form/form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateComponent } from './components/update/update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FormComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
